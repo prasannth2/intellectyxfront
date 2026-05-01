@@ -350,16 +350,19 @@ function Dashboard({ theme, onToggleTheme }) {
               onView={handleViewBot}
             />
 
-            <HealthDistribution
-              healthDistribution={healthDistribution}
-              fallbackTrend={fallbackTrend}
-            />
-            <AdminChatbot
-              tenants={tenants}
-              bots={bots}
-              selectedTenantId={filters.tenantId}
-              selectedBotId={filters.botId}
-            />
+            <div className="grid grid-cols-1 gap-[16px] xl:grid-cols-[420px_1fr]">
+              <HealthDistribution
+                healthDistribution={healthDistribution}
+                fallbackTrend={fallbackTrend}
+              />
+
+              <AdminChatbot
+                tenants={tenants}
+                bots={bots}
+                selectedTenantId={filters.tenantId}
+                selectedBotId={filters.botId}
+              />
+            </div>
           </div>
         )}
       </div>

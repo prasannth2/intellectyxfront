@@ -1,6 +1,13 @@
-import { Bot, CalendarDays, ChevronDown, RefreshCcw } from "lucide-react";
+import {
+  Bot,
+  CalendarDays,
+  ChevronDown,
+  Moon,
+  RefreshCcw,
+  Sun,
+} from "lucide-react";
 
-function PageHeader({ onRefresh, isRefreshing }) {
+function PageHeader({ theme, onToggleTheme, onRefresh, isRefreshing }) {
   return (
     <header className="border-b border-slate-200 bg-white px-[18px] py-[16px] dark:border-slate-800 dark:bg-slate-950">
       <div className="flex items-start justify-between gap-6">
@@ -36,6 +43,15 @@ function PageHeader({ onRefresh, isRefreshing }) {
 
           <button
             type="button"
+            onClick={onToggleTheme}
+            className="inline-flex h-[38px] items-center gap-2 rounded-[9px] border border-slate-300 bg-white px-[14px] text-[14px] font-semibold text-slate-950 shadow-[0_1px_1px_rgba(15,23,42,0.03)] transition hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800"
+          >
+            {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
+            {theme === "dark" ? "Light" : "Dark"}
+          </button>
+
+          <button
+            type="button"
             onClick={onRefresh}
             disabled={isRefreshing}
             className="inline-flex h-[38px] items-center gap-2 rounded-[9px] border border-slate-300 bg-white px-[16px] text-[14px] font-semibold text-slate-950 shadow-[0_1px_1px_rgba(15,23,42,0.03)] disabled:opacity-60 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100"
@@ -46,14 +62,6 @@ function PageHeader({ onRefresh, isRefreshing }) {
             />
             Refresh
           </button>
-
-          {/* <button
-            type="button"
-            className="inline-flex h-[38px] items-center gap-2 rounded-[9px] border border-blue-600 bg-blue-600 px-[16px] text-[14px] font-semibold text-white shadow-[0_1px_1px_rgba(15,23,42,0.05)] hover:bg-blue-700 dark:border-blue-500 dark:bg-blue-500 dark:hover:bg-blue-600"
-          >
-            <Download size={16} />
-            Export
-          </button> */}
         </div>
       </div>
     </header>

@@ -230,7 +230,7 @@ function SummaryCards({ summary, botList = [] }) {
   };
 
   return (
-    <section className="grid grid-cols-1 gap-[16px] md:grid-cols-2">
+    <section className="grid grid-cols-1 gap-[16px] md:grid-cols-4">
       {cardConfig.map((card) => {
         const Icon = card.icon;
         const isOpen = activePopup === card.key;
